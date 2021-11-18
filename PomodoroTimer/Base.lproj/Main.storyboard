@@ -1,24 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main_vc" id="BYZ-38-t0r" customClass="ViewController" customModule="PomodoroTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pomodoro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snI-Rq-bhj">
+                                <rect key="frame" x="110.5" y="154" width="193.5" height="55"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GsZ-jm-Zto">
+                                <rect key="frame" x="139.5" y="217" width="135" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tRw-dX-ifU"/>
+                                    <constraint firstAttribute="width" constant="135" id="xWr-qg-oc5"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Dark"/>
+                                </segments>
+                                <connections>
+                                    <action selector="backgroundChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5RT-GE-1VC"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQW-cW-rPj">
+                                <rect key="frame" x="176.5" y="277" width="61" height="35"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXQ-YW-iZ5">
+                                <rect key="frame" x="183" y="432" width="48" height="35"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="1500" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-JV-3db">
+                                <rect key="frame" x="72" y="317" width="270" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Ufb-ux-sCc"/>
+                                    <constraint firstAttribute="width" constant="270" id="rr6-7h-jqc"/>
+                                </constraints>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlK-7i-Tfh">
+                                <rect key="frame" x="143" y="617" width="128.5" height="41.5"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Get Started">
+                                    <fontDescription key="titleFontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="getStartedTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tp4-6B-MVK"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="300" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEo-E8-kVD">
+                                <rect key="frame" x="72" y="472" width="270" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="KYk-dP-rRO"/>
+                                    <constraint firstAttribute="width" constant="270" id="tn4-KW-Bzg"/>
+                                </constraints>
+                            </datePicker>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YQW-cW-rPj" firstAttribute="top" secondItem="GsZ-jm-Zto" secondAttribute="bottom" constant="20" id="2nf-4s-8TH"/>
+                            <constraint firstItem="snI-Rq-bhj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="7W6-gr-tpI"/>
+                            <constraint firstItem="snI-Rq-bhj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EVS-33-FiD"/>
+                            <constraint firstItem="vEo-E8-kVD" firstAttribute="top" secondItem="RXQ-YW-iZ5" secondAttribute="bottom" constant="5" id="FCZ-a6-wHt"/>
+                            <constraint firstItem="RXQ-YW-iZ5" firstAttribute="top" secondItem="YQW-cW-rPj" secondAttribute="bottom" constant="120" id="GzM-vF-Rib"/>
+                            <constraint firstItem="GsZ-jm-Zto" firstAttribute="top" secondItem="snI-Rq-bhj" secondAttribute="bottom" constant="8" id="HOV-1W-rEM"/>
+                            <constraint firstItem="GsZ-jm-Zto" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bl3-CP-9cI"/>
+                            <constraint firstItem="RlK-7i-Tfh" firstAttribute="top" secondItem="vEo-E8-kVD" secondAttribute="bottom" constant="25" id="c0g-Sk-weZ"/>
+                            <constraint firstItem="vEo-E8-kVD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kDh-B6-cTm"/>
+                            <constraint firstItem="YQW-cW-rPj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mLA-an-WEv"/>
+                            <constraint firstItem="RlK-7i-Tfh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n2q-Jp-X7r"/>
+                            <constraint firstItem="aV4-JV-3db" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nh8-wL-bXb"/>
+                            <constraint firstItem="RXQ-YW-iZ5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s6U-XU-T0c"/>
+                            <constraint firstItem="aV4-JV-3db" firstAttribute="top" secondItem="YQW-cW-rPj" secondAttribute="bottom" constant="5" id="tic-FY-Yjk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pomodoroLabel" destination="snI-Rq-bhj" id="1aT-CN-brV"/>
+                        <outlet property="restTime" destination="vEo-E8-kVD" id="dB8-g9-6kY"/>
+                        <outlet property="segmentedControl" destination="GsZ-jm-Zto" id="hwY-Gi-dwk"/>
+                        <outlet property="startButton" destination="RlK-7i-Tfh" id="2SF-LK-utE"/>
+                        <outlet property="workTime" destination="aV4-JV-3db" id="58o-ow-fd9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+        </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="Igl-YR-SYe">
+            <objects>
+                <viewController storyboardIdentifier="timer_vc" id="lpY-Di-g2Y" customClass="TimerViewController" customModule="PomodoroTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iKY-KL-47G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pomodoro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-6T-P6s">
+                                <rect key="frame" x="111" y="154" width="205" height="55"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WJL-6v-ed1">
+                                <rect key="frame" x="139.5" y="219" width="135" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6Zt-EJ-Tdy"/>
+                                    <constraint firstAttribute="width" constant="135" id="sS5-Nb-sVt"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Dark"/>
+                                </segments>
+                                <connections>
+                                    <action selector="backgrounController:" destination="lpY-Di-g2Y" eventType="valueChanged" id="Uoi-3i-u0d"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7S-AN-bnQ">
+                                <rect key="frame" x="57" y="324" width="300" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="9kH-nI-lMe"/>
+                                    <constraint firstAttribute="width" constant="300" id="UP9-6w-kEi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-bK-0dn">
+                                <rect key="frame" x="107" y="504" width="80" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gqo-Yy-oQu"/>
+                                    <constraint firstAttribute="width" constant="80" id="qVB-NE-Q5h"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <imageReference key="image" image="pause.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default" weight="black"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pauseTimerTapped:" destination="lpY-Di-g2Y" eventType="touchUpInside" id="Y4L-rr-EuU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sb-Eg-ZGN">
+                                <rect key="frame" x="227" y="504" width="80" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="B4w-tD-1sW"/>
+                                    <constraint firstAttribute="width" constant="80" id="JHP-AO-kw6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="stop.fill" catalog="system">
+                                    <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="endTimeTapped:" destination="lpY-Di-g2Y" eventType="touchUpInside" id="2je-Hf-4hY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zmy-mA-XNu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T7S-AN-bnQ" firstAttribute="top" secondItem="WJL-6v-ed1" secondAttribute="bottom" constant="65" id="L71-3y-3YK"/>
+                            <constraint firstItem="Gye-6T-P6s" firstAttribute="centerX" secondItem="iKY-KL-47G" secondAttribute="centerX" id="MtS-j8-40L"/>
+                            <constraint firstItem="WJL-6v-ed1" firstAttribute="top" secondItem="Gye-6T-P6s" secondAttribute="bottom" constant="10" id="TIv-sg-p09"/>
+                            <constraint firstItem="h0r-bK-0dn" firstAttribute="top" secondItem="T7S-AN-bnQ" secondAttribute="bottom" constant="40" id="V9H-ym-Tbr"/>
+                            <constraint firstItem="6Sb-Eg-ZGN" firstAttribute="top" secondItem="T7S-AN-bnQ" secondAttribute="bottom" constant="40" id="VfZ-sl-HRb"/>
+                            <constraint firstItem="h0r-bK-0dn" firstAttribute="centerX" secondItem="iKY-KL-47G" secondAttribute="centerX" constant="-60" id="bm3-u2-7DF"/>
+                            <constraint firstItem="T7S-AN-bnQ" firstAttribute="centerX" secondItem="iKY-KL-47G" secondAttribute="centerX" id="j7J-8K-w6Q"/>
+                            <constraint firstItem="6Sb-Eg-ZGN" firstAttribute="centerX" secondItem="iKY-KL-47G" secondAttribute="centerX" constant="60" id="jJu-Du-21y"/>
+                            <constraint firstItem="Gye-6T-P6s" firstAttribute="top" secondItem="Zmy-mA-XNu" secondAttribute="top" constant="110" id="rhj-O6-hyX"/>
+                            <constraint firstItem="WJL-6v-ed1" firstAttribute="centerX" secondItem="iKY-KL-47G" secondAttribute="centerX" id="ys0-RR-OGh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countDown" destination="T7S-AN-bnQ" id="TdR-mv-Du6"/>
+                        <outlet property="segmentedControl" destination="WJL-6v-ed1" id="owW-Ha-RVc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmF-fz-K2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836.23188405797111" y="93.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="stop.fill" catalog="system" width="128" height="113"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
